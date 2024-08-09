@@ -1,0 +1,74 @@
+/* Import a new font family from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  background: url('image1.png');
+  background-size: cover;
+  color: #e09a9a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #ff5722;
+  border-bottom: 1px solid #ff7043;
+  color: #ffffff;
+}
+
+.form-control {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+  background-color: #ffffff;
+  color: #333333;
+  border-color: #ff5722;
+}
+
+.btn-success {
+  background-color: #ff5722;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #ff7043;
+}
+
+label {
+  color: #555555;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+h3 {
+  color: #ea1717;
+}
+
+::placeholder {
+  color: #999999;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ced4da;
+}
+body{
+  background-image: url("image1.png");
+}

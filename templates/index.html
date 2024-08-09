@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Network Intrusion Detection System</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-header text-center" style="background-color:rgb(241, 67, 23); color:white;">
+            <h2>Network Intrusion Detection System</h2>
+          </div>
+          <div class="card-body">
+            <form action="{{ url_for('predict')}}" method="post">
+              <div class="form-group">
+                <label for="attack">Attack:</label>
+                <select id="attack" name="attack" class="form-control">
+                  <option value="0">Other</option>
+                  <option value="1">Neptune</option>
+                  <option value="2">Normal</option>
+                  <option value="3">Satan</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="count">Number of connections to the same destination host as the current connection in the past two seconds:</label>
+                <input type="text" id="count" name="count" class="form-control" placeholder="Enter count" required>
+              </div>
+              <div class="form-group">
+                <label for="dst_host_diff_srv_rate">Percentage of connections to different services among DST HOST COUNT:</label>
+                <input type="text" id="dst_host_diff_srv_rate" name="sdt_host_diff_srv_rate" class="form-control" placeholder="Enter rate" required>
+              </div>
+              <div class="form-group">
+                <label for="dst_host_same_src_port_rate">Percentage of connections to the same source port among among DST HOST COUNT:</label>
+                <input type="text" id="dst_host_same_src_port_rate" name="dst_host_same_src_port_rate" class="form-control" placeholder="Enter rate" required>
+              </div>
+              <div class="form-group">
+                <label for="dst_host_same_srv_rate">Percentage of connections to the same service among among DST HOST COUNT:</label>
+                <input type="text" id="dst_host_same_srv_rate" name="dst_host_same_srv_rate" class="form-control" placeholder="Enter rate" required>
+              </div>
+              <div class="form-group">
+                <label for="dst_host_srv_count">Number of connections with the same port number:</label>
+                <input type="text" id="dst_host_srv_count" name="dst_host_srv_count" class="form-control" placeholder="Enter count" required>
+              </div>
+              <div class="form-group">
+                <label for="flag">Status of the connection (Normal or Error):</label>
+                <select id="flag" name="flag" class="form-control">
+                  <option value="0">Other</option>
+                  <option value="1">S0</option>
+                  <option value="2">SF</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="last_flag">Last Flag:</label>
+                <input type="text" id="last_flag" name="last_flag" class="form-control" placeholder="Enter last flag" required>
+              </div>
+              <div class="form-group">
+                <label for="logged_in">1 if successfully logged in; 0 otherwise:</label>
+                <input type="text" id="logged_in" name="logged_in" class="form-control" placeholder="Enter 1 or 0" required>
+              </div>
+              <div class="form-group">
+                <label for="same_srv_rate">Percentage of connections to the same service among count:</label>
+                <input type="text" id="same_srv_rate" name="same_srv_rate" class="form-control" placeholder="Enter rate" required>
+              </div>
+              <div class="form-group">
+                <label for="serror_rate">Percentage of connections activating the flag (s0, s1, s2, or s3) among count:</label>
+                <input type="text" id="serror_rate" name="serror_rate" class="form-control" placeholder="Enter rate" required>
+              </div>
+              <div class="form-group">
+                <label for="service_http">Destination network service used (HTTP or not):</label>
+                <select id="service_http" name="service_http" class="form-control">
+                  <option value="0">No</option>
+                  <option value="1">Yes</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-success btn-block">Predict</button>
+            </form>
+          </div>
+          {% if output %}
+          <div class="card-footer text-center">
+            <h3>Attack Class should be <b style="color:red;">{{ output }}</b></h3>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
